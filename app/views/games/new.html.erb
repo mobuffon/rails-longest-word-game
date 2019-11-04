@@ -1,0 +1,17 @@
+<div class="container text-center">
+<h1>New Game</h1>
+<div class="letters d-flex" name="p">
+  <% @grid.each do |letter| %>
+  <h3 class="letter"><%= letter %></h3>
+  <% end %>
+</div>
+
+<form action="http://localhost:3000/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @grid %>
+  <%= hidden_field_tag :time, @t %>
+
+  <input type="text" name="word">
+  <input type="submit">
+</form>
+</div>
